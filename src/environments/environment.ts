@@ -9,7 +9,7 @@ export const environment = {
     authDomain: "astron-data.firebaseapp.com",
     databaseURL: "https://astron-data.firebaseio.com",
     projectId: "astron-data",
-    storageBucket: "",
+    storageBucket: "gs://astron-data.appspot.com",
     messagingSenderId: "24373863715"
   }
 };

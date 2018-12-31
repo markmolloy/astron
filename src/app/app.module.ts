@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from'@angular/forms';
 import { AppComponent } from './app.component';
 import { MatModule } from './mat/mat.module';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //  pipes
 
@@ -24,15 +24,22 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { AdminGuard } from './services/admin.guard';
 
 //  components
-import { ComponentsComponent } from './components/components.component';
+import { HomeComponent } from './components/home/home.component';
+import { ParallaxDirective } from './parallax.directive';
+import { DropZoneDirective } from './drop-zone.directive';
 
 //  routes
-const appRoutes: Routes = [];
+const appRoutes: Routes = [{ 
+  path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: 'home', component: HomeComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    ComponentsComponent
+    HomeComponent,
+    ParallaxDirective,
+    DropZoneDirective
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -44,9 +51,9 @@ const appRoutes: Routes = [];
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireStorageModule,
+    AngularFireStorageModule
   ],
   providers: [ AuthService, AuthGuardService, AdminGuard ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

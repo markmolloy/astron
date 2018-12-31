@@ -1,0 +1,38 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+  
+    
+    match /posts/{document} {
+      function getRole(role) {
+        return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roles[role]
+      }
+      //allow read: if exists(get(/databases/$(database)/documents/posts/$(document)).data.published);
+      allow read;
+      allow update: if getRole('editor') == true;
+      allow create, delete: if getRole('admin') == true;
+    }
+    
+    match /posts/{document}/paragraphs/{paras} {
+    	function getRole(role) {
+        return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roles[role]
+      }
+      allow read;
+      allow update: if getRole('editor') == true;
+      allow create, delete: if getRole('admin') == true;
+    }
+    
+    match /emails/{document} {
+    	allow write;
+    }
+    
+    match /users/{document} {
+      function getRole(role) {
+        return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roles[role]
+      }
+      allow read;
+      allow create: if request.resource.data.roles.keys().hasAny(['admin', 'editor']) == false;
+      allow update: if getRole('admin') == true;
+    }
+    
+  }
+}

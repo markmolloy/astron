@@ -1,0 +1,11 @@
+<div class="outer-back">
+
+<label for="file">File:</label>
+<input type="file" (change)="upload($event)" accept=".png,.jpg" />
+
+<progress max="100" [value]="(uploadProgress | async)"></progress>
+<h1>Prediction</h1>
+<p>{{predictions.prediction}}</p>
+    
+</div>
+

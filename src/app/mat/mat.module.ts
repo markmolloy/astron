@@ -1,3 +1,5 @@
+//  All the Angular Material components
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -15,7 +17,8 @@ import {
   MatInputModule,
   MatSnackBarModule,
   MatSlideToggleModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatProgressBarModule
 } from '@angular/material';
 
 @NgModule({
@@ -34,7 +37,8 @@ import {
     MatInputModule,
     MatSnackBarModule,
     MatSlideToggleModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatProgressBarModule
   ],
   exports: [
     MatButtonModule,
@@ -50,7 +54,8 @@ import {
     MatInputModule,
     MatSnackBarModule,
     MatSlideToggleModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatProgressBarModule
   ],
   declarations: []
 })
