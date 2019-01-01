@@ -1,7 +1,6 @@
 .outer-back {
     width: 100%;
-    height: 90vh;
-    background: #f2f2f2;
+    background: #fff;
     position: relative;
     /*background-image: url('.../../../../../assets/sky.jpg');*/
     background-repeat: no-repeat;
@@ -13,13 +12,19 @@
     align-items: center;
 }
 
-.upload-drop-zone {
-    width: 70%;
-    height: 30%;
-    background: rgba(255,255,255,0.5);
-    border: 2px dashed red;
+.results {
+    width: 100%;
+    margin: 5%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    font-size: 2em;
+    justify-content: center;
+}
+
+.upload-holder {
+    width: 60%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    
 }

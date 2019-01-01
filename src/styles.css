@@ -9,16 +9,16 @@ font-family: 'Lato', sans-serif;
 
 
 :root {
-    --primary-color-dark:   #455A64;
-    --primary-color:        #607D8B;
-    --primary-color-light:  #CFD8DC;
+    --primary-color-dark:   #7B1FA2;
+    --primary-color:        #9C27B0;
+    --primary-color-light:  #E1BEE7;
     --primary-color-text:   #FFFFFF;
-    --accent-color:         #00BCD4;
+    --accent-color:         #FF5722;
     --primary-text-color:   #212121;
     --secondary-text-color: #757575;
     --divider-color:        #BDBDBD; 
   }
-  
+
   body {
     margin: 0;
     font-family: Roboto, sans-serif;
@@ -97,10 +97,15 @@ font-family: 'Lato', sans-serif;
   h5 {
     font-weight: 300;
     margin: 0;
+    color: var(--primary-color);
+  }
+
+  h2 {
+    font-size: 1.9em;
   }
   
   h3 {
-    font-size: 2.2em;
+    font-size: 1.6em;
   }
   
   h4 {
@@ -108,3 +113,8 @@ font-family: 'Lato', sans-serif;
     font-weight: 500;
      color: var(--secondary-text-color);
   }
+
+  .content {
+    padding: 10vh 16vw;
+    min-height: 100%;
+}

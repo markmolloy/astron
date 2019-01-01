@@ -23,15 +23,22 @@ import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AdminGuard } from './services/admin.guard';
 
-//  components
-import { HomeComponent } from './components/home/home.component';
+//  directives
 import { ParallaxDirective } from './parallax.directive';
 import { DropZoneDirective } from './drop-zone.directive';
+
+//  components
+import { HomeComponent } from './components/home/home.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { FileSizePipe } from './file-size.pipe';
+import { SingleImagePredictionComponent } from './components/single-image-prediction/single-image-prediction.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 //  routes
 const appRoutes: Routes = [{ 
   path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: 'home', component: HomeComponent }
+  { path: 'home', component: HomeComponent },
+  { path: 'uploads', component: FileUploadComponent }
 ];
 
 @NgModule({
@@ -39,7 +46,11 @@ const appRoutes: Routes = [{
     AppComponent,
     HomeComponent,
     ParallaxDirective,
-    DropZoneDirective
+    DropZoneDirective,
+    FileUploadComponent,
+    FileSizePipe,
+    SingleImagePredictionComponent,
+    LandingComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

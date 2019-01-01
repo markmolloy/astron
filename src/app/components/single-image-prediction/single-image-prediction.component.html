@@ -1,0 +1,62 @@
+<!-- <div class="prediction">
+  <div class="left">
+    <img [src]="imSrc" alt="i">
+  </div>
+  <div class="right">
+    <h2>{{name}}</h2>
+    <p *ngIf="predictions">{{predictions.prediction}}</p>
+  </div>
+</div> -->
+<div class="prediction-holder">
+  <div class="prediction">
+    <div class="left">
+      <img [src]="imSrc" alt="i">
+    </div>
+    <div class="right" *ngIf="!loading && predictions">
+      <h3>{{name}}</h3>
+      <p class="predict-meteor">{{predictions.prediction}}</p>
+      <p class="confidence">Confidence level: {{predictions.score}}</p>
+    </div>
+    <div class="right" *ngIf="loading">
+        <mat-spinner  color="accent"></mat-spinner>
+    </div>
+  </div>
+  <div class="help-needed" *ngIf="!loading && predictions">
+    <div class="check" *ngIf="predictions.score < 0.8">
+      <h4>Is this a meteor?</h4>
+      <p>We need your help!</p>
+      <p>Astron couldn't confidently classify this image.  Its best guess was {{predictions.prediction}} with a confidence level of {{predictions.score}}.</p>
+      <p>Is this a meteor?</p>
+      <div class="button-row">
+          <button mat-stroked-button color="primary">Yes</button>
+          <button mat-stroked-button color="warn">No</button>
+          <button mat-stroked-button color="accent">Not sure</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 
+<div class="prediction-holder">
+  <div class="prediction">
+    <div class="left">
+      <img src="../../../assets/nm.jpg" alt="i">
+    </div>
+    <div class="right">
+      <h3>meteor_file_name_012345.jpg</h3>
+      <p class="predict-meteor">meteor</p>
+      <p class="confidence">Confidence: 0.9876546</p>
+    </div>
+  </div>
+  <div class="help-needed">
+    <h4>Is this a meteor?</h4>
+    <p>We need your help!</p>
+    <p>Astron couldn't confidently classify this image.  Its best guess was .765% chance that it is a meteor.</p>
+    <p>Is this a meteor?</p>
+    <div class="button-row">
+        <button mat-stroked-button color="primary">Yes</button>
+        <button mat-stroked-button color="warn">No</button>
+        <button mat-stroked-button color="accent">Not sure</button>
+    </div>
+  </div>
+</div> -->

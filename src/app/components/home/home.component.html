@@ -1,11 +1,16 @@
 <div class="outer-back">
 
-<label for="file">File:</label>
-<input type="file" (change)="upload($event)" accept=".png,.jpg" />
+    <div class="upload-holder" *ngIf="!results">
+        <label for="file">File:</label>
+        <input type="file" (change)="upload($event)" accept=".png,.jpg" multiple/>
+    </div>
 
-<progress max="100" [value]="(uploadProgress | async)"></progress>
-<h1>Prediction</h1>
-<p>{{predictions.prediction}}</p>
+    <div class="results" *ngIf="results">
+        <h2>Results</h2>
+        <div class="files" *ngFor="let file of fileList">
+            <app-single-image-prediction [file]="file"></app-single-image-prediction>
+        </div>
+    </div>
     
 </div>
 

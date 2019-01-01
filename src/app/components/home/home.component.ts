@@ -1,6 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { AngularFireStorage } from '@angular/fire/storage';
-import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -9,39 +7,23 @@ import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection 
 })
 export class HomeComponent implements OnInit {
 
-  predictions: any;
-  ref: any;
-  task: any;
-  uploadProgress: any;
-  name: any;
+  fileList: any[];
+  results: boolean;
 
-  doc: AngularFirestoreDocument<any>;
-  do: AngularFirestoreCollection<any>;
+  test = [0, 1];
 
-  @ViewChild('nm') nm: ElementRef;
-
-  constructor(private afStorage: AngularFireStorage, public db: AngularFirestore) { }
+  constructor() { }
 
   ngOnInit() {
-    this.predictions = {
-      predictions: ''
-    };
+    this.results = false;
   }
 
   upload(event) {
-    this.ref = this.afStorage.ref(event.target.files[0].name);
-    this.task = this.ref.put(event.target.files[0]);
-    this.name = event.target.files[0].name;
-    this.uploadProgress = this.task.percentageChanges();
-    this.getPrediction(this.name);
-  }
-
-  getPrediction(name) {
-    this.doc = this.db.doc<any>('images/' + name);
-    this.ref = this.doc.valueChanges().subscribe( val => {
-      this.predictions = val;
-      console.log(val);
-    });
+    this.results = false;
+    this.fileList = event.target.files;
+    if (this.fileList.length > 0) {
+      this.results = true;
+    }
   }
 
 }
